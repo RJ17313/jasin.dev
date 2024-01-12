@@ -9,7 +9,7 @@ import Circle from "./Circle";
 
 export default function ProjectCard(props) {
   return (
-    <Card className="max-w-64">
+    <Card className="max-w-64" isPressable isBlurred>
       <CardHeader>
         <div className="flex items-center gap-2">
           <Image
@@ -27,7 +27,7 @@ export default function ProjectCard(props) {
       <CardFooter>
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-1">
-            <Circle />
+            <Circle className="shadow-lg shadow-yellow-400/70" />
             <p>{props.primaryLanguage}</p>
           </div>
           <div className="flex items-center gap-1">
@@ -37,7 +37,7 @@ export default function ProjectCard(props) {
               className="h-5 w-5"
               isBlurred
             ></Image>
-            <p className="font-bold">20</p>
+            <p className="font-bold">{props.stars}</p>
           </div>
         </div>
       </CardFooter>
