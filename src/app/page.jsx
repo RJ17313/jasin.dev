@@ -1,11 +1,14 @@
-import { Button } from "@nextui-org/react";
-import ProjectCard from "../../components/ProjectCard";
+import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
   return (
     <main>
       <div>
-        <ProjectCard></ProjectCard>
+        <ProjectCard
+          title="discord-tts-bot"
+          description="A discord bot that speaks in tts in a voice channel"
+          primaryLanguage="JavaScript"
+        ></ProjectCard>
       </div>
     </main>
   );
