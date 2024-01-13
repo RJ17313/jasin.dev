@@ -6,8 +6,16 @@ import {
   Image,
 } from "@nextui-org/react";
 import Circle from "./Circle";
+import useSWR from "swr";
 
 export default function ProjectCard(props) {
+  const fetcher = (url) => fetch(url).then((res) => res.json());
+  console.log(props.repositoryName);
+  const { data, error } = useSWR(
+    `https://api.github.com/repos/${props.repositoryName}`,
+    fetcher,
+  );
+  console.log(error);
   return (
     <Card className="max-w-64" isPressable isBlurred>
       <CardHeader>
@@ -18,17 +26,17 @@ export default function ProjectCard(props) {
             src="github-mark-white.svg"
             className="h-8 w-8"
           ></Image>
-          <p className="font-bold">{props.title}</p>
+          <p className="font-bold">{data.title}</p>
         </div>
       </CardHeader>
       <CardBody>
-        <p>{props.description}</p>
+        <p>{data.description}</p>
       </CardBody>
       <CardFooter>
         <div className="flex w-full items-center justify-between">
           <div className="flex items-center gap-1">
             <Circle className="shadow-lg shadow-yellow-400/70" />
-            <p>{props.primaryLanguage}</p>
+            <p>{data.primaryLanguage}</p>
           </div>
           <div className="flex items-center gap-1">
             <Image
@@ -37,7 +45,7 @@ export default function ProjectCard(props) {
               className="h-5 w-5"
               isBlurred
             ></Image>
-            <p className="font-bold">{props.stars}</p>
+            <p className="font-bold">{data.stars}</p>
           </div>
         </div>
       </CardFooter>
