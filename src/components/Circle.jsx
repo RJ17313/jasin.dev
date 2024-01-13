@@ -1,9 +1,7 @@
 export default function Circle(props) {
   return (
     <div
-      className={`h-3 w-3 rounded-full ${props.color ?? `bg-yellow-400`} ${
-        props.className
-      }`}
+      className={`bg-${props.color} bg-JavaScript h-3 w-3 rounded-full ${props.className}`}
     ></div>
   );
 }
