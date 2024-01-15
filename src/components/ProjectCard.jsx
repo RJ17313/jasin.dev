@@ -25,7 +25,7 @@ export default function ProjectCard(props) {
   if (error) return <ErrorCard />;
   return (
     <Card
-      className="max-w-64 duration-[15ms] hover:-translate-y-4 hover:scale-105"
+      className="min-w-64 max-w-64 duration-[15ms] hover:-translate-y-4 hover:scale-105"
       isPressable
       isBlurred
       onPress={() => window.open(`https://github.com/${props.repositoryName}`)}
