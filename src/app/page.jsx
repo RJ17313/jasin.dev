@@ -1,14 +1,18 @@
 "use client";
 import ChangeTheme from "@/components/ChangeTheme";
 import ProjectCard from "@/components/ProjectCard";
-import { Button, Code, Image, Link } from "@nextui-org/react";
+import {
+  Button,
+  Card,
+  CardBody,
+  CardHeader,
+  Code,
+  Image,
+  Link,
+} from "@nextui-org/react";
 import { useTheme } from "next-themes";
 
-const repositories = [
-  "rj17313/discord-tts-bot",
-  "jaydns/solcompute",
-  "RJ17313/YouTube-Py-Downloader",
-];
+const repositories = ["jaydns/solcompute", "rj17313/discord-tts-bot"];
 
 const prompts = [
   "High School Student",
@@ -27,6 +31,7 @@ export default function Home() {
             variant="light"
             className="h-10 w-fit min-w-0"
             as={Link}
+            target="_blank"
             href="https://github.com/rj17313"
             isExternal
           >
@@ -88,6 +93,20 @@ export default function Home() {
               ></ProjectCard>
             );
           })}
+          {repositories.length < 6 && (
+            <Card
+              as={Link}
+              href="https://github.com/rj17313"
+              target="_blank"
+              isBlurred
+              isPressable
+              isHoverable
+              className="min-w-64 max-w-64 p-2 duration-[15ms] hover:-translate-y-4 hover:scale-105"
+            >
+              <CardHeader className="font-bold">Well...</CardHeader>
+              <CardBody>More projects to come later</CardBody>
+            </Card>
+          )}
         </div>
       </div>
     </main>

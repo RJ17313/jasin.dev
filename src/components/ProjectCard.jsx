@@ -4,17 +4,14 @@ import {
   CardFooter,
   CardHeader,
   Image,
-  Skeleton,
+  Link,
 } from "@nextui-org/react";
 import Circle from "./Circle";
 import useSWR from "swr";
 import LoadingCard from "./LoadingCard";
 import ErrorCard from "./ErrorCard";
-import { useTheme } from "next-themes";
 
 export default function ProjectCard(props) {
-  const { resolvedTheme } = useTheme();
-
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR(
     `https://api.github.com/repos/${props.repositoryName}`,
@@ -25,10 +22,13 @@ export default function ProjectCard(props) {
   if (error) return <ErrorCard />;
   return (
     <Card
+      as={Link}
+      href={`https://github.com/${props.repositoryName}`}
+      target="_blank"
       className="min-w-64 max-w-64 duration-[15ms] hover:-translate-y-4 hover:scale-105"
       isPressable
+      isHoverable
       isBlurred
-      onPress={() => window.open(`https://github.com/${props.repositoryName}`)}
     >
       <CardHeader>
         <div className="flex items-center gap-2">
