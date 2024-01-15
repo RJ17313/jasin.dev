@@ -1,12 +1,20 @@
 import { Button, Image } from "@nextui-org/react";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
-export default function ChangeTheme(props) {
+export default function ChangeTheme() {
   const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
   return (
     <div>
       <Button
-        color={resolvedTheme === "dark" ? "primary" : "secondary"}
+        color="primary"
         variant="light"
         className="h-10 w-fit min-w-0"
         onClick={() => {

@@ -1,7 +1,7 @@
 "use client";
 import ChangeTheme from "@/components/ChangeTheme";
 import ProjectCard from "@/components/ProjectCard";
-import { Button, Code, Divider, Image, Link } from "@nextui-org/react";
+import { Button, Code, Image, Link } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 
 const repositories = [
@@ -11,7 +11,7 @@ const repositories = [
 ];
 
 const prompts = [
-  "Highschool Student",
+  "High School Student",
   "Aspiring Software Engineer",
   "Fullstack Developer",
 ];
@@ -32,12 +32,8 @@ export default function Home() {
           >
             <Image
               alt="GitHub Logo"
-              src={
-                resolvedTheme === "dark"
-                  ? "github-mark-white.svg"
-                  : "github-mark.svg"
-              }
-              className="h-6 w-6"
+              src="github-mark.svg"
+              className="h-6 w-6 dark:invert"
             ></Image>
           </Button>
           <Button
@@ -48,11 +44,9 @@ export default function Home() {
             href="mailto:ryan@jasin.dev"
           >
             <Image
-              src={
-                resolvedTheme === "dark" ? "mail-dark.svg" : "mail-light.svg"
-              }
-              alt="mail icon"
-              className="h-6 w-6"
+              src="mail.svg"
+              alt="Mail icon"
+              className="h-6 w-6 dark:invert"
             ></Image>
           </Button>
         </div>
@@ -65,11 +59,7 @@ export default function Home() {
         <div className="flex flex-col gap-2 md:flex-row">
           {prompts.map((prompt) => {
             return (
-              <Code
-                key={prompt}
-                size="md"
-                color={resolvedTheme === "dark" ? "primary" : "secondary"}
-              >
+              <Code key={prompt} size="md" color="primary">
                 {prompt}
               </Code>
             );
@@ -78,25 +68,18 @@ export default function Home() {
       </div>
 
       <div className="flex flex-col items-center gap-4 p-8">
-        <Code
-          size="md"
-          color={resolvedTheme === "dark" ? "primary" : "secondary"}
-        >
+        <Code size="md" color="primary">
           Check out some of my projects
         </Code>
         <Image
           alt="down arrow"
-          src={
-            resolvedTheme === "dark"
-              ? "/down-arrow-dark.svg"
-              : "/down-arrow-light.svg"
-          }
-          className="h-6 w-6"
+          src="down-arrow.svg"
+          className="h-6 w-6 dark:invert"
         ></Image>
       </div>
 
       <div className="flex overflow-x-auto px-2 md:justify-center">
-        <div className="flex w-fit items-center justify-center gap-12">
+        <div className="flex h-64 w-fit items-center justify-center gap-12">
           {repositories.map((repository) => {
             return (
               <ProjectCard

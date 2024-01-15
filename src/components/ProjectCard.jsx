@@ -35,12 +35,8 @@ export default function ProjectCard(props) {
           <Image
             isBlurred
             alt="GitHub Logo"
-            src={
-              resolvedTheme === "dark"
-                ? "github-mark-white.svg"
-                : "github-mark.svg"
-            }
-            className="h-8 w-8"
+            src="github-mark.svg"
+            className="h-8 w-8 dark:invert"
           ></Image>
           <p className="font-bold">{data.name}</p>
         </div>
