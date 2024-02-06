@@ -15,7 +15,6 @@ import { useTheme } from "next-themes";
 const repositories = [
   "jaydns/devdock",
   "jaydns/solcompute",
-  "https://github.com/RJ17313/jasin.dev",
   "rj17313/discord-tts-bot",
 ];
 
