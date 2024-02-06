@@ -12,7 +12,11 @@ import {
 } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 
-const repositories = ["jaydns/solcompute", "rj17313/discord-tts-bot"];
+const repositories = [
+  "jaydns/devdock",
+  "jaydns/solcompute",
+  "rj17313/discord-tts-bot",
+];
 
 const prompts = [
   "High School Student",
