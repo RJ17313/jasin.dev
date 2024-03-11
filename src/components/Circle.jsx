@@ -2,7 +2,7 @@ export default function Circle(props) {
   const languageColorVariants = {
     Python: "bg-[#3572a5]",
     JavaScript: "bg-[#f1e05a]",
-    TypeScript: "bg-[##3178c6]",
+    TypeScript: "bg-[#3178c6]",
   };
   return (
     <div
